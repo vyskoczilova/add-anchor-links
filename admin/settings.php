@@ -17,7 +17,7 @@ function add_anchor_links_settings_init(  ) {
 	add_settings_section(
 		'add_anchor_links_design_section', 
 		__( 'Design', 'add-anchor-links' ), 
-		'add_anchor_links_settings_section_callback', 
+		'add_anchor_links_empty_section_callback', 
 		'pluginPage'
 	);
 
@@ -27,45 +27,49 @@ function add_anchor_links_settings_init(  ) {
 		'own_css_render', 
 		'pluginPage', 
 		'add_anchor_links_design_section' 
+    );
+
+    add_settings_section(
+		'add_anchor_links_apply_on_section', 
+		__( 'Apply on', 'add-anchor-links' ), 
+		'add_anchor_links_empty_section_callback', 
+		'pluginPage'
 	);
 
 	add_settings_field( 
-		'show_icon', 
-		__( 'Show Link icon next to heading', 'add-anchor-links' ), 
-		'show_icon_render', 
+		'post_types', 
+		__( 'Add anchors on', 'add-anchor-links' ), 
+		'post_types_render', 
 		'pluginPage', 
-		'add_anchor_links_design_section' 
-	);
+		'add_anchor_links_apply_on_section' 
+    );
+    
 
 }
-
 
 function own_css_render(  ) { 
 
-	$options = get_option( 'add_anchor_links_settings' );
+    global $add_anchor_links_options;
+    
 	?>
-	<input type='checkbox' name='add_anchor_links_settings[own_css]' <?php checked( $options['own_css'], 1 ); ?> value='1'>
+	<input type='checkbox' name='add_anchor_links_settings[own_css]' value='1' <?php checked( $add_anchor_links_options['own_css'], 1 ); ?>>
 	<?php
 
 }
 
+function post_types_render(  ) { 
 
-function show_icon_render(  ) { 
-
-	$options = get_option( 'add_anchor_links_settings' );
-	?>
-	<input type='checkbox' name='add_anchor_links_settings[show_icon]' <?php checked( $options['show_icon'], 1 ); ?> value='1'>
-	<?php
-
-}
-
-
-function add_anchor_links_settings_section_callback(  ) { 
-
-	echo __( 'Modify the Add Links Section desing settings.', 'add-anchor-links' );
+    global $add_anchor_links_options;
+    $post_types = add_anchor_links_post_types();
+    foreach ( $post_types as $pt ) {        
+        ?>
+        <label><input type='checkbox' name='add_anchor_links_settings[<?php echo $pt; ?>]' value='1' <?php checked( $add_anchor_links_options[$pt], 1 ); ?>><?php echo $pt; ?></label><br /><?php
+    }    
 
 }
 
+function add_anchor_links_empty_section_callback(  ) { 
+}
 
 function add_anchor_links_options_page(  ) { 
 
@@ -84,5 +88,3 @@ function add_anchor_links_options_page(  ) {
 	<?php
 
 }
-
-?>
