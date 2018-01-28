@@ -2,7 +2,7 @@
 
 /*
   Plugin Name: Add Anchor Links
-  Description: TODO
+  Description: Creates anchor links to heading tags in the content.
   Version:     0.0.1
   Author:      Karolína Vyskočilová
   Author URI:  https://kybernaut.cz
@@ -47,9 +47,8 @@ function add_anchor_links_plugin_init() {
         if ( ! $add_anchor_links_options['own_css'] ) {            
             add_action('wp_enqueue_scripts', 'add_anchor_links_scripts');
         }
-        require_once( ADD_ANCHOR_LINKS_DIR . 'include/class-add-anchor-links.php' );
-        add_filter('the_content', 'add_anchor_links_to_the_content');
-               
+        require_once( ADD_ANCHOR_LINKS_DIR . 'include/class-add-anchor-links.php' );        
+
     }
 
 }
@@ -68,17 +67,6 @@ function add_anchor_links_scripts() {
     if ( is_singular( add_anchor_links_post_types( true ) ) ) {
         wp_enqueue_style('add-anchor-links-style', ADD_ANCHOR_LINKS_URL . 'assets/css/add-anchor-links.css', array(), ADD_ANCHOR_LINKS_VERSION );
     }
-}
-
-// TODO show link icon?
-function add_anchor_links_to_the_content ( $content ) {
-
-    if ( is_singular( add_anchor_links_post_types( true ) ) ) {
-        $aal = new Add_Anchor_Links();
-        $content = $aal->add_anchors( $content );
-    }
-    return $content;
-
 }
 
 // Default options

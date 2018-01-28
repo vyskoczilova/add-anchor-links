@@ -5,14 +5,15 @@
     line-height: 1;
     text-decoration: none;
 }
-
+.aal_anchor:focus {
+    outline: 0;
+}
 .aal_svg {
     vertical-align: middle;
     visibility: hidden;
     display: inline-block;
     fill: currentColor;
 }
-
 h1:hover .aal_svg, h2:hover .aal_svg, h3:hover .aal_svg, h4:hover .aal_svg, h5:hover .aal_svg, h6:hover .aal_svg {
     visibility: visible;
 }

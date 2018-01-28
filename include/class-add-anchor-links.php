@@ -12,16 +12,25 @@ if ( ! class_exists( 'Add_Anchor_Links' ) ) {
         - Constructor
         */
         function __construct() {
-            
-            // todo
+        
+            add_filter('the_content', array(&$this,'add_anchor_links_to_the_content') );            
             
         }
+
+        public function add_anchor_links_to_the_content ( $content ) {
+
+            if ( is_singular( add_anchor_links_post_types( true ) ) ) {
+                return $this->add_anchors( $content );
+            }
+
+        }
+
 
         /**
          - Add Links
          * Replace headings with an anchor
          */
-        public function add_anchors( $text ) {
+        private function add_anchors( $text ) {
 
             // search for headlines
             $pattern = '#<h([1-6])(?: [^>]+)?>(.+?)</h\1>#is';
@@ -49,3 +58,4 @@ if ( ! class_exists( 'Add_Anchor_Links' ) ) {
 
     }
 }
+new Add_Anchor_Links();
