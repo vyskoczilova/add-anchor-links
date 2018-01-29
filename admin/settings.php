@@ -1,14 +1,18 @@
 <?php
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 add_action( 'admin_menu', 'add_anchor_links_add_admin_menu' );
 add_action( 'admin_init', 'add_anchor_links_settings_init' );
-
 
 function add_anchor_links_add_admin_menu(  ) { 
 
 	add_submenu_page( 'options-general.php', 'Add Anchor Links', 'Add Anchor Links', 'manage_options', 'add_anchor_links', 'add_anchor_links_options_page' );
 
 }
-
 
 function add_anchor_links_settings_init(  ) { 
 

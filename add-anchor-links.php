@@ -31,9 +31,8 @@ function add_anchor_links_localize_plugin() {
     load_plugin_textdomain('add-anchor-links', false, ADD_ANCHOR_LINKS_DIR . 'languages/');
 }
 
-// Is WooCommerce active?
+// Load plugin
 add_action('plugins_loaded', 'add_anchor_links_plugin_init', 99);
-
 function add_anchor_links_plugin_init() {    
     
     if ( is_admin() ) {
