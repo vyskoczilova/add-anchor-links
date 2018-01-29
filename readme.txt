@@ -6,9 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: anchor, anchor links, content links, content, headings
 
-Creates anchor links to heading tags in the content.
-
-INSPIRACE_ https://cs.wordpress.org/plugins/better-anchor-links/
+Creates anchor links to heading tags in the content, just like Github does within the Readme files.
 
 == Description ==
 

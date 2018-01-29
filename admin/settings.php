@@ -12,20 +12,20 @@ function add_anchor_links_add_admin_menu(  ) {
 
 function add_anchor_links_settings_init(  ) { 
 
-	register_setting( 'pluginPage', 'add_anchor_links_settings' );
+	register_setting( 'add_anchor_links_plugin_page', 'add_anchor_links_settings' );
 
 	add_settings_section(
 		'add_anchor_links_design_section', 
 		__( 'Design', 'add-anchor-links' ), 
 		'add_anchor_links_empty_section_callback', 
-		'pluginPage'
+		'add_anchor_links_plugin_page'
 	);
 
 	add_settings_field( 
 		'own_css', 
 		__( 'Use your own CSS', 'add-anchor-links' ), 
-		'own_css_render', 
-		'pluginPage', 
+		'add_anchor_links_own_css_render', 
+		'add_anchor_links_plugin_page', 
 		'add_anchor_links_design_section' 
     );
 
@@ -33,21 +33,21 @@ function add_anchor_links_settings_init(  ) {
 		'add_anchor_links_apply_on_section', 
 		__( 'Apply on', 'add-anchor-links' ), 
 		'add_anchor_links_empty_section_callback', 
-		'pluginPage'
+		'add_anchor_links_plugin_page'
 	);
 
 	add_settings_field( 
 		'post_types', 
 		__( 'Add anchors on', 'add-anchor-links' ), 
-		'post_types_render', 
-		'pluginPage', 
+		'add_anchor_links_post_types_render', 
+		'add_anchor_links_plugin_page', 
 		'add_anchor_links_apply_on_section' 
     );
     
 
 }
 
-function own_css_render(  ) { 
+function add_anchor_links_own_css_render(  ) { 
 
     global $add_anchor_links_options;
     
@@ -57,7 +57,7 @@ function own_css_render(  ) {
 
 }
 
-function post_types_render(  ) { 
+function add_anchor_links_post_types_render(  ) { 
 
     global $add_anchor_links_options;
     $post_types = add_anchor_links_post_types();
@@ -68,7 +68,7 @@ function post_types_render(  ) {
 
 }
 
-function add_anchor_links_empty_section_callback(  ) { 
+function add_anchor_links_empty_section_callback() { 
 }
 
 function add_anchor_links_options_page(  ) { 
@@ -76,11 +76,11 @@ function add_anchor_links_options_page(  ) {
 	?>
 	<form action='options.php' method='post'>
 
-		<h2>Add Anchor Links</h2>
+		<h2><?php _e('Add Anchor Links','add-anchor-links'); ?></h2>
 
 		<?php
-		settings_fields( 'pluginPage' );
-		do_settings_sections( 'pluginPage' );
+		settings_fields( 'add_anchor_links_plugin_page' );
+		do_settings_sections( 'add_anchor_links_plugin_page' );
 		submit_button();
 		?>
 
