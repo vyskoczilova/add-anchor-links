@@ -47,12 +47,9 @@ function add_anchor_links_plugin_init() {
         add_filter('plugin_action_links_' . ADD_ANCHOR_LINKS_PLUGIN_BASENAME, 'add_anchor_links_plugin_action_links');
         add_action( 'admin_notices', 'add_anchor_links_admin_notice_activation' );
 
-    } else {
-
-        global $add_anchor_links_options;
-        if ( ! $add_anchor_links_options['own_css'] ) {            
-            add_action('wp_enqueue_scripts', 'add_anchor_links_scripts');
-        }
+    } else {     
+        
+        add_action('wp_enqueue_scripts', 'add_anchor_links_scripts');
         require_once( ADD_ANCHOR_LINKS_DIR . 'include/class-add-anchor-links.php' );        
 
     }
@@ -74,11 +71,20 @@ function add_anchor_links_plugin_action_links($links) {
 /**
  * Load scripts and styles
  * @since 1.0.0
+ * @since 1.0.1 ADD_ANCHOR_LINKS_DONT_LOAD_CSS
  */
 function add_anchor_links_scripts() {
+
+    // Don't load scripts if disabled by settings or by constant
+    global $add_anchor_links_options;
+    if ( defined( 'ADD_ANCHOR_LINKS_DONT_LOAD_CSS' ) && ADD_ANCHOR_LINKS_DONT_LOAD_CSS || $add_anchor_links_options['own_css'] ) {
+        return;
+    }
+
     if ( is_singular( add_anchor_links_post_types( true ) ) ) {
         wp_enqueue_style('add-anchor-links-style', ADD_ANCHOR_LINKS_URL . 'assets/css/add-anchor-links.css', array(), ADD_ANCHOR_LINKS_VERSION );
     }
+
 }
 
 /**
