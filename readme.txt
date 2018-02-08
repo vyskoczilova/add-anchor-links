@@ -25,7 +25,8 @@ Get involved and [join Github](https://github.com/vyskoczilova/add-anchor-links)
 
 == Installation ==
 
-Just follow the standard [WordPress plugin installation procedere](http://codex.wordpress.org/Managing_Plugins).
+1. Follow the standard [WordPress plugin installation procedere](http://codex.wordpress.org/Managing_Plugins).
+2. When installed, go to `Settings -> Add Anchor Links` and when should be applied.
 
 
 == Frequently asked questions ==

@@ -25,13 +25,19 @@ define('ADD_ANCHOR_LINKS_URL', plugin_dir_url(__FILE__));
 define('ADD_ANCHOR_LINKS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 define('ADD_ANCHOR_LINKS_VERSION', '1.0.0');
 
-// Localize plugin
+/**
+ * Localize plugin
+ * @since 1.0.0
+ */
 add_action('init', 'add_anchor_links_localize_plugin');
 function add_anchor_links_localize_plugin() {
     load_plugin_textdomain('add-anchor-links', false, ADD_ANCHOR_LINKS_DIR . 'languages/');
 }
 
-// Load plugin
+/**
+ * Load plugin
+ * @since 1.0.0
+ */
 add_action('plugins_loaded', 'add_anchor_links_plugin_init', 99);
 function add_anchor_links_plugin_init() {    
     
@@ -39,6 +45,7 @@ function add_anchor_links_plugin_init() {
 
         require_once( ADD_ANCHOR_LINKS_DIR . 'admin/settings.php' );
         add_filter('plugin_action_links_' . ADD_ANCHOR_LINKS_PLUGIN_BASENAME, 'add_anchor_links_plugin_action_links');
+        add_action( 'admin_notices', 'add_anchor_links_admin_notice_activation' );
 
     } else {
 
@@ -52,7 +59,10 @@ function add_anchor_links_plugin_init() {
 
 }
 
-// Add settings link
+/**
+ * Add settings link
+ * @since 1.0.0
+ */
 function add_anchor_links_plugin_action_links($links) {
     $action_links = array(
 	'settings' => '<a href="' . admin_url('options-general.php?page=add_anchor_links') . '" aria-label="' . esc_attr__('View Add Anchor Links settings', 'add-anchor-links') . '">' . esc_html__('Settings', 'add-anchor-links') . '</a>',
@@ -61,14 +71,20 @@ function add_anchor_links_plugin_action_links($links) {
     return array_merge($action_links, $links);
 }
 
-// Load scripts and styles
+/**
+ * Load scripts and styles
+ * @since 1.0.0
+ */
 function add_anchor_links_scripts() {
     if ( is_singular( add_anchor_links_post_types( true ) ) ) {
         wp_enqueue_style('add-anchor-links-style', ADD_ANCHOR_LINKS_URL . 'assets/css/add-anchor-links.css', array(), ADD_ANCHOR_LINKS_VERSION );
     }
 }
 
-// Default options
+/**
+ * Default options
+ * @since 1.0.0
+ */
 function add_anchor_links_options_defaults() {
     $default_options = array( 
         'own_css' => false,
@@ -81,7 +97,10 @@ function add_anchor_links_options_defaults() {
     return $default_options;
 }
 
-// Get post types
+/**
+ * Get post types where the AAL is enabled
+ * @since 1.0.0
+ */
 function add_anchor_links_post_types( $active = false ) {
 
     $post_types = get_post_types( array(
@@ -101,4 +120,34 @@ function add_anchor_links_post_types( $active = false ) {
     }
 
     return $post_types;
+}
+
+/**
+ * Runs only when the plugin is activated.
+ * @since 1.0.1
+ */
+function add_anchor_links_activation_hook() {
+ 
+    /* Create transient data */
+    set_transient( 'aal-admin-notice-actiovation', true, 5 );
+
+}
+register_activation_hook( __FILE__, 'add_anchor_links_activation_hook' );
+ 
+/**
+ * Admin Notice on Activation.
+ * @since 1.0.1
+ */
+function add_anchor_links_admin_notice_activation(){
+ 
+    /* Check transient, if available display notice */
+    if( get_transient( 'aal-admin-notice-actiovation' ) ){
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p><b><?php printf( esc_html__( 'ADD ANCHOR LINKS:%s Don\'t forget to set up the plugin in %ssettings%s.', 'add-anchor-links' ), '</b>', '<a href="' . admin_url('options-general.php?page=add_anchor_links') . '" aria-label="' . esc_attr__('View Add Anchor Links settings', 'add-anchor-links') . '">', '</a>' ); ?></p>
+        </div>
+        <?php
+        /* Delete transient, only display this notice once. */
+        delete_transient( 'aal-admin-notice-actiovation' );
+    }
 }

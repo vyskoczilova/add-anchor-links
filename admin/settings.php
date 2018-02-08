@@ -8,12 +8,18 @@ if ( ! defined( 'WPINC' ) ) {
 add_action( 'admin_menu', 'add_anchor_links_add_admin_menu' );
 add_action( 'admin_init', 'add_anchor_links_settings_init' );
 
+/**
+ * @since 1.0.0
+ */
 function add_anchor_links_add_admin_menu(  ) { 
 
 	add_submenu_page( 'options-general.php', 'Add Anchor Links', 'Add Anchor Links', 'manage_options', 'add_anchor_links', 'add_anchor_links_options_page' );
 
 }
 
+/**
+ * @since 1.0.0
+ */
 function add_anchor_links_settings_init(  ) { 
 
 	register_setting( 'add_anchor_links_plugin_page', 'add_anchor_links_settings' );
@@ -51,6 +57,9 @@ function add_anchor_links_settings_init(  ) {
 
 }
 
+/**
+ * @since 1.0.0
+ */
 function add_anchor_links_own_css_render(  ) { 
 
     global $add_anchor_links_options;
@@ -61,6 +70,9 @@ function add_anchor_links_own_css_render(  ) {
 
 }
 
+/**
+ * @since 1.0.0
+ */
 function add_anchor_links_post_types_render(  ) { 
 
     global $add_anchor_links_options;
@@ -72,9 +84,15 @@ function add_anchor_links_post_types_render(  ) {
 
 }
 
+/**
+ * @since 1.0.0
+ */
 function add_anchor_links_empty_section_callback() { 
 }
 
+/**
+ * @since 1.0.0
+ */
 function add_anchor_links_options_page(  ) { 
 
 	?>
