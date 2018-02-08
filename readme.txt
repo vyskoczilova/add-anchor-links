@@ -1,16 +1,19 @@
 ﻿=== Add Anchor Links ===
 Contributors: vyskoczilova
-Requires at least: 4.9
-Tested up to: 4.9.2
+Requires at least: 4.8
+Tested up to: 4.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: anchor, anchor links, content links, content, headings
+Stable tag: 1.0.0
 
-Creates anchor links to heading tags in the content, just like Github does within the Readme files.
+Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
 
 == Description ==
 
-Creates anchor links to heading tags in the content.
+Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
+
+Get involved and [join Github](https://github.com/vyskoczilova/woocommerce-payforpayment)!
 
 === Features ===
 * Select post type where the anchor links will be added.
@@ -19,14 +22,37 @@ Creates anchor links to heading tags in the content.
 === Compatibility ===
 * PHP 5.6 & PHP 7
 
+
 == Installation ==
 
-1. Upload the plugin to your web site or install via plugin management.
-1. Check whether the WooCommerce plugin is installed and active.
-1. Activate the plugin through the `Plugins` menu in WordPress administration
-1. Done!
+Just follow the standard [WordPress plugin installation procedere](http://codex.wordpress.org/Managing_Plugins).
+
+
+== Frequently asked questions ==
+
+= I want to use the latest files. How can I do this? =
+
+Use the GitHub Repo rather than the WordPress Plugin. Do as follows:
+
+1. If you haven't already done: [Install git](https://help.github.com/articles/set-up-git)
+
+2. In the console cd into Your 'wp-content/plugins´ directory
+
+3. Type `git clone https://github.com/vyskoczilova/woocommerce-payforpayment` or better type `git fork https://github.com/vyskoczilova/woocommerce-payforpayment`
+
+4. If you want to update to the latest files (be careful, might be untested on Your WP-Version) type `git pull´.
+
+= I found a bug. Where should I post it? =
+
+I personally prefer GitHub, to keep things straight. The plugin code is here: [GitHub](https://github.com/vyskoczilova/woocommerce-payforpayment)
+But you may use the WordPress Forum as well.
+
+= I found a bug and fixed it. How can I contribute? =
+
+Either post it on [GitHub](https://github.com/vyskoczilova/woocommerce-payforpayment) or—if you are working on a cloned repository—send me a pull request.
+
 
 == Changelog ==
 
-= 1.0.0 (TODO DATE) =
+= 1.0.0 (2018-02-08) =
 * Initial release
