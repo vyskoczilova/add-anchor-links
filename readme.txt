@@ -13,7 +13,7 @@ Creates anchor links to heading tags in the content of selected posts, just like
 
 Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
 
-Get involved and [join Github](https://github.com/vyskoczilova/woocommerce-payforpayment)!
+Get involved and [join Github](https://github.com/vyskoczilova/add-anchor-links)!
 
 === Features ===
 * Select post type where the anchor links will be added.
@@ -38,18 +38,18 @@ Use the GitHub Repo rather than the WordPress Plugin. Do as follows:
 
 2. In the console cd into Your 'wp-content/plugins´ directory
 
-3. Type `git clone https://github.com/vyskoczilova/woocommerce-payforpayment` or better type `git fork https://github.com/vyskoczilova/woocommerce-payforpayment`
+3. Type `git clone https://github.com/vyskoczilova/add-anchor-links` or better type `git fork https://github.com/vyskoczilova/add-anchor-links`
 
 4. If you want to update to the latest files (be careful, might be untested on Your WP-Version) type `git pull´.
 
 = I found a bug. Where should I post it? =
 
-I personally prefer GitHub, to keep things straight. The plugin code is here: [GitHub](https://github.com/vyskoczilova/woocommerce-payforpayment)
+I personally prefer GitHub, to keep things straight. The plugin code is here: [GitHub](https://github.com/vyskoczilova/add-anchor-links)
 But you may use the WordPress Forum as well.
 
 = I found a bug and fixed it. How can I contribute? =
 
-Either post it on [GitHub](https://github.com/vyskoczilova/woocommerce-payforpayment) or—if you are working on a cloned repository—send me a pull request.
+Either post it on [GitHub](https://github.com/vyskoczilova/add-anchor-links) or—if you are working on a cloned repository—send me a pull request.
 
 
 == Changelog ==
