@@ -55,7 +55,7 @@ function add_anchor_links_plugin_init() {
 // Add settings link
 function add_anchor_links_plugin_action_links($links) {
     $action_links = array(
-	'settings' => '<a href="' . admin_url('options-general.php?page=add_anchor_links') . '" aria-label="' . esc_attr__('View Anchor Links settings', 'add-anchor-links') . '">' . esc_html__('Settings', 'add-anchor-links') . '</a>',
+	'settings' => '<a href="' . admin_url('options-general.php?page=add_anchor_links') . '" aria-label="' . esc_attr__('View Add Anchor Links settings', 'add-anchor-links') . '">' . esc_html__('Settings', 'add-anchor-links') . '</a>',
     );
 
     return array_merge($action_links, $links);
