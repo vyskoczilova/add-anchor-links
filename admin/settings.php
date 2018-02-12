@@ -77,7 +77,10 @@ function add_anchor_links_post_types_render(  ) {
 
     global $add_anchor_links_options;
     $post_types = add_anchor_links_post_types();
-    foreach ( $post_types as $pt ) {        
+    foreach ( $post_types as $pt ) {
+		if ( ! isset( $add_anchor_links_options[$pt] )) {
+			$add_anchor_links_options[$pt] = false;
+		}        
         ?>
         <label><input type='checkbox' name='add_anchor_links_settings[<?php echo $pt; ?>]' value='1' <?php checked( $add_anchor_links_options[$pt], 1 ); ?>><?php echo $pt; ?></label><br /><?php
     }    

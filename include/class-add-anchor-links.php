@@ -21,7 +21,9 @@ if ( ! class_exists( 'Add_Anchor_Links' ) ) {
 
             if ( is_singular( add_anchor_links_post_types( true ) ) ) {
                 return $this->add_anchors( $content );
-            }
+            } 
+
+            return $content;
 
         }
 

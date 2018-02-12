@@ -5,7 +5,7 @@ Tested up to: 4.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: anchor, anchor links, content links, content, headings
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
 
@@ -54,6 +54,13 @@ Either post it on [GitHub](https://github.com/vyskoczilova/add-anchor-links) or�
 
 
 == Changelog ==
+
+= 1.0.1 (2018-02-12) = 
+* Fix: Few typos in readme files.
+* Fix: Post types error.
+* Added: Notice about settings shown on plugin activation.
+* Added: Constant ADD_ANCHOR_LINKS_DONT_LOAD_CSS (see Github).
+* Added: Banner & icon image to the WP repository (by [Dušan Konečný](http://abmanufaktura.cz)).
 
 = 1.0.0 (2018-02-08) =
 * Initial release

@@ -3,7 +3,7 @@
 /*
   Plugin Name: Add Anchor Links
   Description: Creates anchor links to heading tags in the content.
-  Version:     1.0.0
+  Version:     1.0.1
   Author:      Karolína Vyskočilová
   Author URI:  https://kybernaut.cz
   Text Domain: add-anchor-links
@@ -23,7 +23,7 @@ $add_anchor_links_options = wp_parse_args( get_option( 'add_anchor_links_setting
 define('ADD_ANCHOR_LINKS_DIR', plugin_dir_path(__FILE__));
 define('ADD_ANCHOR_LINKS_URL', plugin_dir_url(__FILE__));
 define('ADD_ANCHOR_LINKS_PLUGIN_BASENAME', plugin_basename(__FILE__));
-define('ADD_ANCHOR_LINKS_VERSION', '1.0.0');
+define('ADD_ANCHOR_LINKS_VERSION', '1.0.1');
 
 /**
  * Localize plugin
@@ -117,7 +117,9 @@ function add_anchor_links_post_types( $active = false ) {
 
         global $add_anchor_links_options;
         $_post_types = $post_types;
-        foreach( $_post_types as $pt ) {
+        $post_types = array();
+
+        foreach( $_post_types as $pt ) {     
             if ( isset($add_anchor_links_options[$pt] ) && $add_anchor_links_options[$pt] ) {
                 $post_types[] = $pt;
             }
@@ -135,7 +137,7 @@ function add_anchor_links_post_types( $active = false ) {
 function add_anchor_links_activation_hook() {
  
     /* Create transient data */
-    set_transient( 'aal-admin-notice-actiovation', true, 5 );
+    set_transient( 'aal-admin-notice-activation', true, 5 );
 
 }
 register_activation_hook( __FILE__, 'add_anchor_links_activation_hook' );
@@ -147,13 +149,13 @@ register_activation_hook( __FILE__, 'add_anchor_links_activation_hook' );
 function add_anchor_links_admin_notice_activation(){
  
     /* Check transient, if available display notice */
-    if( get_transient( 'aal-admin-notice-actiovation' ) ){
+    if( get_transient( 'aal-admin-notice-activation' ) ){
         ?>
         <div class="notice notice-warning is-dismissible">
             <p><b><?php printf( esc_html__( 'ADD ANCHOR LINKS:%s Don\'t forget to set up the plugin in %ssettings%s.', 'add-anchor-links' ), '</b>', '<a href="' . admin_url('options-general.php?page=add_anchor_links') . '" aria-label="' . esc_attr__('View Add Anchor Links settings', 'add-anchor-links') . '">', '</a>' ); ?></p>
         </div>
         <?php
         /* Delete transient, only display this notice once. */
-        delete_transient( 'aal-admin-notice-actiovation' );
+        delete_transient( 'aal-admin-notice-activation' );
     }
 }
