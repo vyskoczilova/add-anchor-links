@@ -3,7 +3,7 @@
 /*
   Plugin Name: Add Anchor Links
   Description: Creates anchor links to heading tags in the content.
-  Version:     1.0.1
+  Version:     1.0.2
   Author:      Karolína Vyskočilová
   Author URI:  https://kybernaut.cz
   Text Domain: add-anchor-links
@@ -23,7 +23,7 @@ $add_anchor_links_options = wp_parse_args( get_option( 'add_anchor_links_setting
 define('ADD_ANCHOR_LINKS_DIR', plugin_dir_path(__FILE__));
 define('ADD_ANCHOR_LINKS_URL', plugin_dir_url(__FILE__));
 define('ADD_ANCHOR_LINKS_PLUGIN_BASENAME', plugin_basename(__FILE__));
-define('ADD_ANCHOR_LINKS_VERSION', '1.0.1');
+define('ADD_ANCHOR_LINKS_VERSION', '1.0.2');
 
 /**
  * Localize plugin
