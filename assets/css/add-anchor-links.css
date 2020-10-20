@@ -1,7 +1,12 @@
 /**
+ * Add Anchor Links <https://github.com/vyskoczilova/add-anchor-links>
+ * WordPress plugin <https://fr.wordpress.org/plugins/add-anchor-links/>
+ * Author: Karolína Vyskočilová <https://kybernaut.cz>
+ * 
+ * Forked on GitHub by pewgeuges on 2020-10-20T0159+0200
  * This code has been customized on 2020-10-18T2246+0200
  * to handle paragraphs instead of headings.
- * Last modified:  2020-10-19T1121+0200
+ * Last modified:  2020-10-20T1108+0200
  */
 .aal_anchor {
     float: left;
@@ -19,6 +24,12 @@
     display: inline-block;
     fill: currentColor;
 }
-h1:hover .aal_svg, h2:hover .aal_svg, h3:hover .aal_svg, h4:hover .aal_svg, h5:hover .aal_svg, h6:hover .aal_svg, p:hover .aal_svg {
+h1:hover .aal_svg,
+h2:hover .aal_svg,
+h3:hover .aal_svg,
+h4:hover .aal_svg,
+h5:hover .aal_svg,
+h6:hover .aal_svg,
+p:hover .aal_svg {
     visibility: visible;
 }
