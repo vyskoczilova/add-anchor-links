@@ -18,11 +18,11 @@ So in WordPress we have heading anchors integrated with tables of contents.
 
 ### Paragraph anchors
 
-The opposite is true for paragraph anchors. These must be kept separately, since any word in a paragraph may need a hyperlink. So the scheme with added icons displaying on hover is an excellent fit for paragraph anchors.
+The opposite is true for paragraph anchors. These must be kept separate, since any word in a paragraph may need a hyperlink. So the scheme with added icons displaying on hover is an excellent fit for paragraph anchors.
 
 In WordPress, support for paragraph anchors seemed to be inexistent until now. An old and unfinished plugin proposed to support these, but it is not maintained.
 
-Links to paragraphs also suffer from the historic bias of using fragment identifiers based on numbering paragraphs, inspired by Douglas Engelbart’s Purple Numbers, called so by his daughter when she saw the purple numbers appended to paragraphs, with the hyperlink in them.
+Links to paragraphs also suffer from the historic bias of using fragment identifiers based on numbering paragraphs, inspired by Douglas Engelbart’s Purple Numbers, called so by his daughter when she saw the purple numbers appended to paragraphs, with the hyperlink on them.
 
 ## Feature
 
@@ -47,4 +47,4 @@ Author: Karolína Vyskočilová (@vyskoczilova) [https://kybernaut.cz](https://k
 
 Forked on GitHub by @pewgeuges on 2020-10-20T0159+0200
 
-This README.md last modified: 2020-10-20T1321+0200
+This README.md last modified: 2020-10-20T2300+0200
