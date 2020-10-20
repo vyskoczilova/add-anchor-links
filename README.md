@@ -40,7 +40,9 @@ Please install the original plugin via your WordPress add-plugin interface, then
 ## Meta
 
 Name: Add Anchor Links [https://github.com/vyskoczilova/add-anchor-links](https://github.com/vyskoczilova/add-anchor-links)
+
 Type: WordPress plugin [https://fr.wordpress.org/plugins/add-anchor-links/](https://fr.wordpress.org/plugins/add-anchor-links/)
+
 Author: Karolína Vyskočilová (@vyskoczilova) [https://kybernaut.cz](https://kybernaut.cz)
 
 Forked on GitHub by @pewgeuges on 2020-10-20T0159+0200
