@@ -7,11 +7,11 @@
  * Forked on GitHub by pewgeuges on 2020-10-20T0159+0200
  * This code has been customized on 2020-10-18T2246+0200
  * to handle paragraphs instead of headings.
- * Last modified:  2020-10-20T1126+0200
+ * Last modified:  2020-10-20T1138+0200
  */
 // If this file is called directly, abort and display a message.
 if ( ! defined( 'WPINC' ) ) {
-	die( nl2br( "\r\n\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;en:&nbsp;&nbsp;&nbsp;&nbsp;This PHP file cannot be displayed in the browser.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For a quick look, please open this content as a plain text file if there is any with the same name.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You may also wish to download the target and open the file in a text editor.\r\n\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fr&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;Ce fichier ne peut pas s'afficher dans le navigateur.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour un aperçu du contenu, ouvrez s.v.p. le fichier texte de même nom s’il existe.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous pouvez aussi télécharger la cible du lien et ouvrir le fichier dans votre éditeur de texte." ) );
+  die( nl2br( "\r\n\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;en:&nbsp;&nbsp;&nbsp;&nbsp;This PHP file cannot be displayed in the browser.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For a quick look, please open this content as a plain text file if there is any with the same name.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You may also wish to download the target and open the file in a text editor.\r\n\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fr&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;Ce fichier ne peut pas s'afficher dans le navigateur.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour un aperçu du contenu, ouvrez s.v.p. le fichier texte de même nom s’il existe.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous pouvez aussi télécharger la cible du lien et ouvrir le fichier dans votre éditeur de texte." ) );
 }
 
 if ( ! class_exists( 'Add_Anchor_Links' ) ) {
@@ -38,10 +38,10 @@ if ( ! class_exists( 'Add_Anchor_Links' ) ) {
 
 
         /**
-				 - Add Links
-				 * As headings anchors are handled by table of contents plugins,
+         - Add Links
+         * As headings anchors are handled by table of contents plugins,
          * focus on paragraphs instead.
-				 * Anchors are built based on the first 10 words or less.
+         * Anchors are built based on the first 10 words or less.
          */
         private function add_anchors( $text ) {
 
