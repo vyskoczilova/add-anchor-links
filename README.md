@@ -32,9 +32,9 @@ This fork of course keeps the original plugin’s features of selectively adding
 
 ## Installation
 
-Please install the original plugin via your WordPress add-plugin interface, then replace two files:
-1. wp-content/plugins/add-anchor-links/include/class-add-anchor-links.php
-2. wp-content/plugins/add-anchor-links/assets/css/add-anchor-links.css
+Please install the original plugin via your WordPress add-plugin interface, then replace two files using these (class-add-anchor-links.php is to be fetched at a previous stage, due to on-going unfinished development):
+1. [https://github.com/pewgeuges/add-anchor-links/blob/347eccef0fc6327535ce000d730fd4ed76f67853/include/class-add-anchor-links.php](https://github.com/pewgeuges/add-anchor-links/blob/347eccef0fc6327535ce000d730fd4ed76f67853/include/class-add-anchor-links.php)
+2. [wp-content/plugins/add-anchor-links/assets/css/add-anchor-links.css](wp-content/plugins/add-anchor-links/assets/css/add-anchor-links.css)
 
 
 ## Meta
@@ -47,4 +47,4 @@ Author: Karolína Vyskočilová (@vyskoczilova) [https://kybernaut.cz](https://k
 
 Forked on GitHub by @pewgeuges on 2020-10-20T0159+0200
 
-This README.md last modified: 2020-10-20T2300+0200
+This README.md last modified: 2020-10-21T2327+0200
