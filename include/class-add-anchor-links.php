@@ -7,7 +7,7 @@
  * Forked on GitHub by pewgeuges on 2020-10-20T0159+0200
  * This code has been customized on 2020-10-18T2246+0200
  * to handle paragraphs instead of headings.
- * Last modified:  2020-10-21T2247+0200
+ * Last modified:  2020-10-22T2206+0200
  */
 // If this file is called directly, abort and display a message:
 if ( ! defined( 'WPINC' ) ) {
@@ -39,25 +39,16 @@ if ( ! class_exists( 'Add_Anchor_Links' ) ) {
 
         /**
          - Add Links
-         * Add an anchor to specific elements
+         * As heading anchors are handled by table of contents plugins,
+         * focus on paragraphs instead.
+         * Anchors are built based on the first 10 words.
+         * 
+         *    For this to work, each paragraph’s word count must be >= 11.
          */
         private function add_anchors( $text ) {
-            
-            $add_anchor_links_options['headings'] = get_option( 'add_anchor_links_settings_headings' );
-            $add_anchor_links_options['paragraphs'] = get_option( 'add_anchor_links_settings_paragraphs' );
-            
-            if ( $add_anchor_links_options['headings'] == 1 ) {
-                if ( $add_anchor_links_options['paragraphs'] == 1 ) {
-                    $pattern = '#<([ph1-6]{1,2})(?: [^>]+)?>([^ <]+( [^ <]+){0,9})(.*?)</\1>#is';
-                } else {
-                    $pattern = '#<h([1-6])(?: [^>]+)?>(.+?)</h\1>#is';
-                }
-            } else {
-                if ( $add_anchor_links_options['paragraphs'] == 1 ) {
-                    $pattern = '#<(p)(?: [^>]+)?>([^ ]+( [^ ]*){9})(.*?)</p>#is';
-                }
-            }
-                                
+
+            // search for paragraphs, capture first 10 words:
+            $pattern = '#<p(?: [^>]+)?>(\S+(\s+\S+){9})(.*?)</p>#is';
             preg_match_all( $pattern , $text , $elements, PREG_OFFSET_CAPTURE );
 
             $offset = 0;
