@@ -12,7 +12,7 @@ In doing so, this fork uses lexical fragment identifiers, improving stability, a
 
 Heading anchors are often added by table-of-contents plugins, e.g. [Table of Contents Plus](https://wordpress.org/plugins/table-of-contents-plus/). URLs with fragment identifiers can then made grabbable from the headings by bracketing the headings with an appropriate hyperlink. This scheme is also used by GitHub in documentation. 
 
-Not doing so in readme files on GitHub is done with respect to the markdown format allowing to add random hyperlinks to headings too. But that is bad practice, so best is to stick with GitHub’s practice in documentation.
+Not using that scheme for readme files on GitHub is done with respect to the markdown format allowing to add random hyperlinks to headings too. But that is bad practice, so best is to stick with GitHub’s practice in documentation.
 
 So in WordPress we have heading anchors integrated with tables of contents.
 
@@ -35,17 +35,17 @@ This fork is work in progress, with the requirement in mind that it must be back
 ## Installation
 
 Please install the original plugin via your WordPress add-plugin interface, then replace two files using these (class-add-anchor-links.php has been reset for that purpose while work is in progress):
-1. [https://github.com/pewgeuges/add-anchor-links/include/class-add-anchor-links.php](https://github.com/pewgeuges/add-anchor-links/include/class-add-anchor-links.php)
-2. [wp-content/plugins/add-anchor-links/assets/css/add-anchor-links.css](wp-content/plugins/add-anchor-links/assets/css/add-anchor-links.css)
+1. https://github.com/pewgeuges/add-anchor-links/include/class-add-anchor-links.php
+2. wp-content/plugins/add-anchor-links/assets/css/add-anchor-links.css
 
 
 ## Meta
 
-Name: Add Anchor Links [https://github.com/vyskoczilova/add-anchor-links](https://github.com/vyskoczilova/add-anchor-links)
+Name: Add Anchor Links https://github.com/vyskoczilova/add-anchor-links
 
-Type: WordPress plugin [https://fr.wordpress.org/plugins/add-anchor-links/](https://fr.wordpress.org/plugins/add-anchor-links/)
+Type: WordPress plugin https://fr.wordpress.org/plugins/add-anchor-links/
 
-Author: Karolína Vyskočilová (@vyskoczilova) [https://kybernaut.cz](https://kybernaut.cz)
+Author: Karolína Vyskočilová (@vyskoczilova) https://kybernaut.cz
 
 Forked on GitHub by @pewgeuges on 2020-10-20T0159+0200
 
