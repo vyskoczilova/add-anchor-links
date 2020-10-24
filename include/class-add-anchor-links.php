@@ -3,6 +3,7 @@
  * Add Anchor Links <https://github.com/vyskoczilova/add-anchor-links>
  * WordPress plugin <https://fr.wordpress.org/plugins/add-anchor-links/>
  * Author: Karolína Vyskočilová <https://kybernaut.cz>
+ * License: GPLv2 or later <https://www.gnu.org/licenses/gpl-2.0.html>
  * 
  * Forked on GitHub by pewgeuges on 2020-10-20T0159+0200
  * This code has been customized on 2020-10-18T2246+0200
