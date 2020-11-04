@@ -2,20 +2,20 @@
 
 /*
   Plugin Name: Add Anchor Links
-  Description: Creates anchor links to heading tags in the content.
-  Version:     1.0.2
+  Description: Creates anchor links to elements in the content.
+  Version:     1.2.0
   Author:      Karolína Vyskočilová
   Author URI:  https://kybernaut.cz
   Text Domain: add-anchor-links
   Domain Path: /languages
  
  */
-
-// If this file is called directly, abort.
-if (!defined('WPINC')) {
-    die;
-}
-
+// Last modified: 2020-10-21T2257+0200
+// If this file is called directly, abort and display a message:
+if ( ! defined( 'WPINC' ) ) {
+	die( nl2br( "\r\n\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;en:&nbsp;&nbsp;&nbsp;&nbsp;This PHP file cannot be displayed in the browser.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For a quick look, please open this content as a plain text file if there is any with the same name.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You may also wish to download the target and open the file in a text editor.\r\n\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fr&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;Ce fichier ne peut pas s'afficher dans le navigateur.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour un aperçu du contenu, ouvrez s.v.p. le fichier texte de même nom s’il existe.\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vous pouvez aussi télécharger la cible du lien et ouvrir le fichier dans votre éditeur de texte." ) );
+  }
+  
 global $add_anchor_links_options;
 // plugin options    
 $add_anchor_links_options = wp_parse_args( get_option( 'add_anchor_links_settings', array()), add_anchor_links_options_defaults() );
@@ -94,7 +94,8 @@ function add_anchor_links_scripts() {
 function add_anchor_links_options_defaults() {
     $default_options = array( 
         'own_css' => false,
-        'post_types' => false,
+		'post_types' => false,
+		'element_types' => false,
     );
     $post_types = add_anchor_links_post_types();
     foreach ( $post_types as $pt ) {
@@ -128,6 +129,35 @@ function add_anchor_links_post_types( $active = false ) {
     }
 
     return $post_types;
+}
+
+/**
+ * Get element types where the AAL is enabled
+ * @since 1.1.0
+ * This added code has not proved functional.
+ */
+function add_anchor_links_element_types( $active = false ) {
+
+    $element_types = array(
+        'headings'   => true,
+        'paragraphs' => true,
+    );
+
+    if ( $active ) {
+
+        global $add_anchor_links_options;
+        $_element_types = $element_types;
+        $element_types = array();
+
+        foreach( $_element_types as $et ) {     
+            if ( isset($add_anchor_links_options[$et] ) && $add_anchor_links_options[$et] ) {
+                $element_types[] = $et;
+            }
+        }
+
+    }
+
+    return $element_types;
 }
 
 /**
