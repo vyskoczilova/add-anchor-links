@@ -20,7 +20,7 @@ Get involved and [join Github](https://github.com/vyskoczilova/add-anchor-links)
 * Disable CSS.
 
 === Compatibility ===
-* PHP 5.6 & PHP 7
+* PHP (5.6) & PHP 7
 
 
 == Installation ==
@@ -55,10 +55,14 @@ Either post it on [GitHub](https://github.com/vyskoczilova/add-anchor-links) orâ
 
 == Changelog ==
 
+= 1.1.0 =
+* Fix: Use escaping attribute on admin screens
+* Add PHPCS
+
 = 1.0.2 (2020-01-13) =
 * Fix: Fix link position when header has attributes ([PR#1](https://github.com/vyskoczilova/add-anchor-links/pull/1) by [@a-mt](https://github.com/a-mt))
 
-= 1.0.1 (2018-02-12) = 
+= 1.0.1 (2018-02-12) =
 * Fix: Few typos in readme files.
 * Fix: Post types error.
 * Added: Notice about settings shown on plugin activation.

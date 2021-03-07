@@ -1,0 +1,20 @@
+{
+    "name": "vyskoczilova/add-anchor-links",
+    "description": "WP plugin that creates anchor links to heading tags in the content.",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Karolína Vyskočilová",
+            "email": "karolina@kybernaut.cz"
+        }
+    ],
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "infinum/eightshift-coding-standards": "^1.1"
+    },
+    "scripts": {
+        "standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+    }
+}
