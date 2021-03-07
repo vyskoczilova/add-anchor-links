@@ -9,7 +9,7 @@ Creates anchor links to heading tags in the content of selected posts, just like
 
 ## Roadmap
 * Add ID directly to headline
-* Use less bulky code for link
+* Use less code for link added
 
 ## Developer features
 If you don't want to load plugins CSS, use following code:
