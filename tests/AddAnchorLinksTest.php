@@ -1,7 +1,6 @@
 <?php
 
 use Kybernaut\AddAnchorLinks;
-// use PHPUnit\Framework\TestCase;
 use WP_Mock\Tools\TestCase;
 
 require_once __DIR__ . '/../include/class-add-anchor-links.php';

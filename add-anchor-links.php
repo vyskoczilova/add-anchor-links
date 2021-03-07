@@ -11,7 +11,7 @@
 /**
  * Plugin Name: Add Anchor Links
  * Description: Creates anchor links to heading tags in the content.
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      Karolína Vyskočilová
  * Author URI:  https://kybernaut.cz
  * Text Domain: add-anchor-links
