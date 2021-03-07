@@ -25,9 +25,9 @@ if (! class_exists('AddAnchorLinks')) {
 	{
 
 		/**
-		 * Constructor
+		 * Init the action
 		 */
-		public function __construct()
+		public function init()
 		{
 
 			\add_filter('the_content', [&$this,'add_anchor_links_to_the_content']);
@@ -55,7 +55,7 @@ if (! class_exists('AddAnchorLinks')) {
 		 * @param string $text Text to be searched in.
 		 * @return string
 		 */
-		public function add_anchors($text)
+		public static function add_anchors($text)
 		{
 
 			// Search for headlines.

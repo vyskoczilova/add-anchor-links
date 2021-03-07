@@ -13,7 +13,15 @@ Creates anchor links to heading tags in the content of selected posts, just like
 * Use less code for link added
 
 ## Developer features
-If you don't want to load plugins CSS, use following code:
+
+### Run the add_links manually
+
+```php
+echo \Kybernaut\AddAnchorLinks::add_links('<h1>Title</h1>');
+```
+
+Call `Kybernaut\AddToAnchor`
+### Don't load CSS if not needed
 
 	define('ADD_ANCHOR_LINKS_DONT_LOAD_CSS', true);
 

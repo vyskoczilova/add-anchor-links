@@ -5,7 +5,7 @@ Tested up to: 5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: anchor, anchor links, content links, content, headings
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 7.1
 
 Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
@@ -56,7 +56,10 @@ Either post it on [GitHub](https://github.com/vyskoczilova/add-anchor-links) orâ
 
 == Changelog ==
 
-= 1.0.3 =
+= 1.0.4 = (2021-03-07)
+* Make `Kybernaut\AddAnchorLinks::add_anchors( $string )` function available for custom calls
+
+= 1.0.3 = (2021-03-07)
 * Fix: Use escaping attribute on admin screens
 * Add PHPCS & simple PHPUnit test
 * Use Travis CI/CD (PHPCS, PHPUnit)

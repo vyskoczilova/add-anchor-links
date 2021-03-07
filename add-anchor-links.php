@@ -11,7 +11,7 @@
 /**
  * Plugin Name: Add Anchor Links
  * Description: Creates anchor links to heading tags in the content.
- * Version:     1.0.3
+ * Version:     1.0.4
  * Author:      Karolína Vyskočilová
  * Author URI:  https://kybernaut.cz
  * Text Domain: add-anchor-links
@@ -60,6 +60,8 @@ function add_anchor_links_plugin_init()
 	} else {
 		add_action('wp_enqueue_scripts', 'add_anchor_links_scripts');
 		require_once(ADD_ANCHOR_LINKS_DIR . 'include/class-add-anchor-links.php');
+		$aal = new Kybernaut\AddAnchorLinks();
+		$aal->init();
 	}
 }
 add_action('plugins_loaded', 'add_anchor_links_plugin_init', 99);
