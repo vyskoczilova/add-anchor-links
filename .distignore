@@ -2,12 +2,11 @@
 /.github
 /.wordpress-org
 /tests
-
 .distignore
 .gitignore
 .travis.yml
-.composer.json
-.composer.lock
-.phpcs.xml.dist
+composer.json
+composer.lock
+phpcs.xml.dist
 phpunit.xml
 README.md
