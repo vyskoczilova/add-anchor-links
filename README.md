@@ -16,3 +16,7 @@ Creates anchor links to heading tags in the content of selected posts, just like
 If you don't want to load plugins CSS, use following code:
 
 	define('ADD_ANCHOR_LINKS_DONT_LOAD_CSS', true);
+
+## Credits
+
+* [Automatic deployment to WordPress.org](https://github.com/10up/action-wordpress-plugin-deploy)
