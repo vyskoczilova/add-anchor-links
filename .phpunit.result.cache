@@ -1,1 +1,0 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":239:{a:2:{s:7:"defects";a:1:{s:51:"AddAnchorLinksTest::testAddLinkToHeadingStaticClass";i:4;}s:5:"times";a:2:{s:53:"AddAnchorLinksTest::testAddLinkToHeadingClassIncluded";d:0.004;s:51:"AddAnchorLinksTest::testAddLinkToHeadingStaticClass";d:0;}}}

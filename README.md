@@ -20,7 +20,6 @@ Creates anchor links to heading tags in the content of selected posts, just like
 echo \Kybernaut\AddAnchorLinks::add_links('<h1>Title</h1>');
 ```
 
-Call `Kybernaut\AddToAnchor`
 ### Don't load CSS if not needed
 
 	define('ADD_ANCHOR_LINKS_DONT_LOAD_CSS', true);
