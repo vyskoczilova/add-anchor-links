@@ -7,6 +7,10 @@ Creates anchor links to heading tags in the content of selected posts, just like
 ## Unreleased changes
 * none
 
+## Roadmap
+* Add ID directly to headline
+* Use less bulky code for link
+
 ## Developer features
 If you don't want to load plugins CSS, use following code:
 
