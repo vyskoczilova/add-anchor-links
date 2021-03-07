@@ -1,0 +1,12 @@
+/.git
+/.github
+/tests
+
+.distignore
+.gitignore
+.travis.yml
+.composer.json
+.composer.lock
+.phpcs.xml.dist
+phpunit.xml
+README.md
