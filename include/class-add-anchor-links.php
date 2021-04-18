@@ -70,7 +70,7 @@ if (! class_exists('AddAnchorLinks')) {
 				global $add_anchor_links_options;
 
 				// Must compare to string '1' to be a strict comparison.
-				if ( $add_anchor_links_options[ 'headings' ] === '1' ) {
+				if ( $add_anchor_links_options[ 'headings' ] !== '1' ) {
 					$content = self::add_anchors($content, 'headings' );
 				}
 				
