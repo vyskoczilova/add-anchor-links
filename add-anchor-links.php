@@ -98,14 +98,24 @@ function add_anchor_links_scripts()
 	}
 
 	if (is_singular(add_anchor_links_post_types(true))) {
-		wp_enqueue_style('add-anchor-links-style', ADD_ANCHOR_LINKS_URL . 'assets/css/add-anchor-links.css', [], ADD_ANCHOR_LINKS_VERSION);
+		wp_enqueue_style('add-anchor-links-style', ADD_ANCHOR_LINKS_URL . 'assets/css/add-anchor-links.min.css', [], ADD_ANCHOR_LINKS_VERSION);
 	}
 }
 
 /**
- * Default options
+ * Default options.
  *
+ * Own CSS and post types.
  * @since 1.0.0
+ * 
+ * Scope, whether to add links also to paragraphs (or only).
+ * @since TBD
+ * 
+ * Any setting registered as false disappears from the DB,
+ * because false is is not registered. Hence to be effective,
+ * the 'paragraphs' settings key cannot default to true.
+ * That brings the need to first visit the dashboard after
+ * activation, as prompted.
  * @return array
  */
 function add_anchor_links_options_defaults()
@@ -113,7 +123,7 @@ function add_anchor_links_options_defaults()
 	$default_options = [
 		'own_css' => false,
 		'post_types' => false,
-		'headings' => true,
+		'headings' => false, // Mustn’t default to true.
 		'paragraphs' => false,
 	];
 	$post_types = add_anchor_links_post_types();
