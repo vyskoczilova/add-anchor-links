@@ -14,7 +14,6 @@ if (! defined('WPINC')) {
 }
 
 /**
- *
  * Add submenu to Settings.
  *
  * @since 1.0.0
@@ -70,14 +69,14 @@ function add_anchor_links_settings_init()
 
 	add_settings_section(
 		'add_anchor_links_scope_section',
-		__('Scope', 'add-anchor-links'),
+		__('Scope: By default, anchors are added to all headings and nowhere else.', 'add-anchor-links'),
 		'add_anchor_links_empty_section_callback',
 		'add_anchor_links_plugin_page'
 	);
 
 	add_settings_field(
 		'scope',
-		__('Add anchors to', 'add-anchor-links'),
+		__('Override defaults:', 'add-anchor-links'),
 		'add_anchor_links_scope_render',
 		'add_anchor_links_plugin_page',
 		'add_anchor_links_scope_section'
@@ -125,6 +124,10 @@ function add_anchor_links_post_types_render()
  * Render settings: Scope.
  *
  * @since TBD
+ * Using a way to restore full backwards compatibility while yet getting
+ * around of needing default-checked boxes, as these are not feasible in
+ * WordPress default option pages because settings set to none disappear
+ * from the DB and are thus reset to their default value.
  * @return void
  */
 function add_anchor_links_scope_render()
@@ -136,9 +139,10 @@ function add_anchor_links_scope_render()
 		if (! isset($add_anchor_links_options[$sc])) {
 			$add_anchor_links_options[$sc] = false;
 		}
-		?>
-		<label><input type='checkbox' name='add_anchor_links_settings[<?php echo esc_attr($sc); ?>]' value='1' <?php checked($add_anchor_links_options[$sc], 1); ?>><?php echo esc_attr($sc); ?></label><br /><?php
 	}
+		?>
+		<label><input type='checkbox' name='add_anchor_links_settings[paragraphs]' value='1' <?php checked($add_anchor_links_options[ 'paragraphs' ], 1); ?>><?php echo __( 'Add anchors also (or only) to paragraphs, list items and block quotes.', 'add-anchor-links' ); ?></label><br />
+		<label><input type='checkbox' name='add_anchor_links_settings[headings]' value='1' <?php checked($add_anchor_links_options[ 'headings' ], 1); ?>><?php echo __( 'Do not add anchors to headings (because these may get them otherwise).', 'add-anchor-links' ); ?></label><br /><?php
 }
 
 /**
