@@ -11,7 +11,7 @@
 /**
  * Plugin Name: Add Anchor Links
  * Description: Creates anchor links to heading tags in the content.
- * Version:     1.0.4
+ * Version:     1.0.5d0
  * Author:      Karolína Vyskočilová
  * Author URI:  https://kybernaut.cz
  * Text Domain: add-anchor-links
@@ -30,7 +30,7 @@ $add_anchor_links_options = wp_parse_args(get_option('add_anchor_links_settings'
 define('ADD_ANCHOR_LINKS_DIR', plugin_dir_path(__FILE__));
 define('ADD_ANCHOR_LINKS_URL', plugin_dir_url(__FILE__));
 define('ADD_ANCHOR_LINKS_PLUGIN_BASENAME', plugin_basename(__FILE__));
-define('ADD_ANCHOR_LINKS_VERSION', '1.0.2');
+define('ADD_ANCHOR_LINKS_VERSION', '1.0.5d0'); // TBD
 
 /**
  * Localize plugin
@@ -87,6 +87,7 @@ function add_anchor_links_plugin_action_links($links)
  *
  * @since 1.0.0
  * @since 1.0.1 ADD_ANCHOR_LINKS_DONT_LOAD_CSS
+ * @since TBD   Minified stylesheet.
  */
 function add_anchor_links_scripts()
 {
@@ -97,6 +98,7 @@ function add_anchor_links_scripts()
 		return;
 	}
 
+	// Load minified stylesheet for production.
 	if (is_singular(add_anchor_links_post_types(true))) {
 		wp_enqueue_style('add-anchor-links-style', ADD_ANCHOR_LINKS_URL . 'assets/css/add-anchor-links.min.css', [], ADD_ANCHOR_LINKS_VERSION);
 	}
