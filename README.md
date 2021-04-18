@@ -12,15 +12,21 @@ Support for paragraph anchors seemed to be inexistent in WordPress until now. An
 
 Links to paragraphs also suffer from the historic bias of using fragment identifiers based on numbering paragraphs, inspired by Douglas Engelbart’s Purple Numbers, called so by his daughter when she saw the purple numbers appended to paragraphs, with the hyperlink on them. That was a time when compacity mattered and was appreciated, as opposed to the actual era where verbose and parameter-rich URLs are so common tbat URL shorteners are thriving.
 
-## Feature
+## Features
 
 This fork of Karolína Vyskočilová’s *Add Anchor Links* WordPress plugin uses the same algorithm to derive fragment identifiers from paragraph contents. The identifiers’ length turns out to be truncated to a reasonable length somewhere in the process. That brings fairly stable identifiers, unaffected by inserting and deleting paragraphs.
 
+The fragment identifiers are disambiguated across elements.
+
+The anchors are offset by 15vh, customizable in Custom CSS (could become a setting when getting along with the setup).
+
 ## Bug
 
-This fork has issues with the new setting. The headings checkbox displays always with its checked default value, only the paragraphs checkbox keeps its status, but it is not used. 
+This fork has issues with the new setting. The headings checkbox displays always with its checked default value, only the paragraphs checkbox keeps its status, but it is not used to control the algorithm.
 
 The only way to test is to manually edit the Booleans in includes/class-add-anchor-links.php:74..75.
+
+I’m sorry about this failure.
 
 ## Meta
 
