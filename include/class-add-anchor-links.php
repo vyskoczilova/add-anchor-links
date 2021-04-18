@@ -69,18 +69,13 @@ if (! class_exists('AddAnchorLinks')) {
 				self::$anchors = array();
 				global $add_anchor_links_options;
 
-
-				// For testing while broken.
-				$add_anchor_links_options[ 'headings' ] = true;
-				$add_anchor_links_options[ 'paragraphs' ] = true;
-
-
-
-				if ( $add_anchor_links_options[ 'headings' ] === true ) {
+				// Must not be a strict comparison, neither with 1 nor true.
+				if ( $add_anchor_links_options[ 'headings' ] == true ) {
 					$content = self::add_anchors($content, 'headings' );
 				}
-
-				if ( $add_anchor_links_options[ 'paragraphs' ] === true ) {
+				
+				// As a strict comparison this would fail either way.
+				if ( $add_anchor_links_options[ 'paragraphs' ] == true ) {
 					$content = self::add_anchors($content, 'paragraphs' );
 				}
 
@@ -94,7 +89,7 @@ if (! class_exists('AddAnchorLinks')) {
 		 * Add an anchor to all headings and/or paragraphs.
 		 *
 		 * @param string $text   Text to be searched in.
-		 * @param string $scope  Whether to process headings, or paragraphs, or both.
+		 * @param string $scope  Whether to process headings or paragraphs.
 		 * @return string
 		 */
 		public static function add_anchors($text, $scope )
