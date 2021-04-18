@@ -69,13 +69,13 @@ if (! class_exists('AddAnchorLinks')) {
 				self::$anchors = array();
 				global $add_anchor_links_options;
 
-				// Must not be a strict comparison, neither with 1 nor true.
-				if ( $add_anchor_links_options[ 'headings' ] == true ) {
+				// Must compare to string '1' to be a strict comparison.
+				if ( $add_anchor_links_options[ 'headings' ] === '1' ) {
 					$content = self::add_anchors($content, 'headings' );
 				}
 				
-				// As a strict comparison this would fail either way.
-				if ( $add_anchor_links_options[ 'paragraphs' ] == true ) {
+				// With number 1 or Boolean, it must be a loose comparison.
+				if ( $add_anchor_links_options[ 'paragraphs' ] === '1' ) {
 					$content = self::add_anchors($content, 'paragraphs' );
 				}
 
