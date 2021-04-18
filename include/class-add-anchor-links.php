@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Claass for adding anchors
+ * Class for adding anchors
  *
  * @package    WordPress
  * @subpackage Add anchor links
