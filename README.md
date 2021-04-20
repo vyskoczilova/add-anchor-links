@@ -23,7 +23,7 @@ The anchors are offset by 15vh, customizable in Custom CSS with the class `aal
 }
 ```
 
-The new setting is fully backwards compatible in that it requires to explicitly disable adding anchors to headings, and/or enable adding anchors to paragraphs, should the plugin’s effect deviate in any way from its default of adding anchors to headings.
+The new setting is fully backwards compatible in that it requires not only to explicitly enable adding anchors to paragraphs, but also eventually to explicitly disable adding anchors to headings, should the plugin’s effect deviate in any way from its default of adding anchors to headings. (Default-checking a box keeps it checked because unchecked boxes are not registered in the DB.)
 
 ## Meta
 
