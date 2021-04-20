@@ -14,7 +14,6 @@ if (! defined('WPINC')) {
 }
 
 /**
- *
  * Add submenu to Settings.
  *
  * @since 1.0.0
@@ -67,6 +66,21 @@ function add_anchor_links_settings_init()
 		'add_anchor_links_plugin_page',
 		'add_anchor_links_apply_on_section'
 	);
+
+	add_settings_section(
+		'add_anchor_links_scope_section',
+		__('Scope: By default, anchors are added to all headings and nowhere else.', 'add-anchor-links'),
+		'add_anchor_links_empty_section_callback',
+		'add_anchor_links_plugin_page'
+	);
+
+	add_settings_field(
+		'scope',
+		__('Override defaults:', 'add-anchor-links'),
+		'add_anchor_links_scope_render',
+		'add_anchor_links_plugin_page',
+		'add_anchor_links_scope_section'
+	);
 }
 add_action('admin_init', 'add_anchor_links_settings_init');
 
@@ -104,6 +118,31 @@ function add_anchor_links_post_types_render()
 		?>
 		<label><input type='checkbox' name='add_anchor_links_settings[<?php echo esc_attr($pt); ?>]' value='1' <?php checked($add_anchor_links_options[$pt], 1); ?>><?php echo esc_attr($pt); ?></label><br /><?php
 	}
+}
+
+/**
+ * Render settings: Scope.
+ *
+ * @since TBD
+ * Using a way to restore full backwards compatibility while yet getting
+ * around of needing default-checked boxes, as these are not feasible in
+ * WordPress default option pages because settings set to none disappear
+ * from the DB and are thus reset to their default value.
+ * @return void
+ */
+function add_anchor_links_scope_render()
+{
+
+	global $add_anchor_links_options;
+	$scope = [ 'headings', 'paragraphs' ];
+	foreach ($scope as $sc) {
+		if (! isset($add_anchor_links_options[$sc])) {
+			$add_anchor_links_options[$sc] = false;
+		}
+	}
+		?>
+		<label><input type='checkbox' name='add_anchor_links_settings[paragraphs]' value='1' <?php checked($add_anchor_links_options[ 'paragraphs' ], 1); ?>><?php echo __( 'Add anchors also (or only) to paragraphs, list items and block quotes.', 'add-anchor-links' ); ?></label><br />
+		<label><input type='checkbox' name='add_anchor_links_settings[headings]' value='1' <?php checked($add_anchor_links_options[ 'headings' ], 1); ?>><?php echo __( 'Do not add anchors to headings (because these may get them otherwise).', 'add-anchor-links' ); ?></label><br /><?php
 }
 
 /**
