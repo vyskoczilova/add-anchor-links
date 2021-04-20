@@ -1,11 +1,12 @@
 ï»¿=== Add Anchor Links ===
 Contributors: vyskoczilova
 Requires at least: 4.8
-Tested up to: 5.3.2
+Tested up to: 5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: anchor, anchor links, content links, content, headings
-Stable tag: 1.0.2
+Stable tag: 1.0.4
+Requires PHP: 7.1
 
 Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
 
@@ -20,7 +21,7 @@ Get involved and [join Github](https://github.com/vyskoczilova/add-anchor-links)
 * Disable CSS.
 
 === Compatibility ===
-* PHP 5.6 & PHP 7
+* PHP (5.6) & PHP 7
 
 
 == Installation ==
@@ -55,10 +56,18 @@ Either post it on [GitHub](https://github.com/vyskoczilova/add-anchor-links) orâ
 
 == Changelog ==
 
+= 1.0.4 = (2021-03-07)
+* Make `Kybernaut\AddAnchorLinks::add_anchors( $string )` function available for custom calls
+
+= 1.0.3 = (2021-03-07)
+* Fix: Use escaping attribute on admin screens
+* Add PHPCS & simple PHPUnit test
+* Use Travis CI/CD (PHPCS, PHPUnit)
+
 = 1.0.2 (2020-01-13) =
 * Fix: Fix link position when header has attributes ([PR#1](https://github.com/vyskoczilova/add-anchor-links/pull/1) by [@a-mt](https://github.com/a-mt))
 
-= 1.0.1 (2018-02-12) = 
+= 1.0.1 (2018-02-12) =
 * Fix: Few typos in readme files.
 * Fix: Post types error.
 * Added: Notice about settings shown on plugin activation.
