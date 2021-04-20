@@ -1,6 +1,4 @@
-# Add Anchor Links (WordPress Plugin) from Karolína Vyskočilová
-
-[![plugin version](https://img.shields.io/wordpress/plugin/v/add-anchor-links.svg)](https://wordpress.org/plugins/add-anchor-links)
+# Add Anchor Links (WordPress Plugin) from Karolína&nbsp;Vyskočilová
 
 This updated (2021-04-18) fork adds anchors to headings, or to paragraphs, or to both.
 
@@ -8,25 +6,24 @@ For paragraphs (also list items and blockquotes), lexical fragment identifiers a
 
 ## Rationale
 
-Support for paragraph anchors seemed to be inexistent in WordPress until now. An old and unfinished plugin proposed to support these, but it is not maintained.
+Support for paragraph anchors was ineffective in WordPress until now. An old plugin declared as unfinished proposed to add these, but it is not maintained.
 
 Links to paragraphs also suffer from the historic bias of using fragment identifiers based on numbering paragraphs, inspired by Douglas Engelbart’s Purple Numbers, called so by his daughter when she saw the purple numbers appended to paragraphs, with the hyperlink on them. That was a time when compacity mattered and was appreciated, as opposed to the actual era where verbose and parameter-rich URLs are so common tbat URL shorteners are thriving.
 
 ## Features
 
-This fork of Karolína Vyskočilová’s *Add Anchor Links* WordPress plugin uses the same algorithm to derive fragment identifiers from paragraph contents. The identifiers’ length turns out to be truncated to a reasonable length somewhere in the process. That brings fairly stable identifiers, unaffected by inserting and deleting paragraphs.
+This fork of Karolína Vyskočilová’s *Add Anchor Links* WordPress plugin uses the same algorithm to derive fragment identifiers from paragraph contents. The identifiers’ length is truncated to a reasonable length by the pre-existing process. That brings fairly stable identifiers, unaffected by inserting and deleting paragraphs.
 
-The fragment identifiers are disambiguated across elements.
+Fragment identifiers occurring more than once are disambiguated across elements by appending (an ASCII hyphen and) a number incremented through headings, then through paragraphs.
 
-The anchors are offset by 15vh, customizable in Custom CSS (could become a setting when getting along with the setup).
+The anchors are offset by 15vh, customizable in Custom CSS with the class `aal_offset_anchor`:
+```css
+.aal_offset_anchor {
+    bottom: 15vh;
+}
+```
 
-## Bug
-
-This fork has issues with the new setting. The headings checkbox displays always with its checked default value, only the paragraphs checkbox keeps its status, but it is not used to control the algorithm.
-
-The only way to test is to manually edit the Booleans in includes/class-add-anchor-links.php:74..75.
-
-I’m sorry about this failure.
+The new setting is fully backwards compatible in that it requires to explicitly disable adding anchors to headings, and/or enable adding anchors to paragraphs, should the plugin’s effect deviate in any way from its default of adding anchors to headings.
 
 ## Meta
 
