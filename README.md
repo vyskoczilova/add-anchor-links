@@ -34,5 +34,3 @@ Type: WordPress plugin [https://fr.wordpress.org/plugins/add-anchor-links/](http
 Author: Karolína Vyskočilová (@vyskoczilova) [https://kybernaut.cz](https://kybernaut.cz)
 
 Forked on GitHub by @pewgeuges on 2020-10-20T0159+0200
-
-This README.md last modified: 2021-04-18T1708+0200
