@@ -11,7 +11,7 @@
 /**
  * Plugin Name: Add Anchor Links
  * Description: Creates anchor links to heading tags in the content.
- * Version:     1.0.5d0
+ * Version:     1.0.4
  * Author:      Karolína Vyskočilová
  * Author URI:  https://kybernaut.cz
  * Text Domain: add-anchor-links
@@ -30,7 +30,7 @@ $add_anchor_links_options = wp_parse_args(get_option('add_anchor_links_settings'
 define('ADD_ANCHOR_LINKS_DIR', plugin_dir_path(__FILE__));
 define('ADD_ANCHOR_LINKS_URL', plugin_dir_url(__FILE__));
 define('ADD_ANCHOR_LINKS_PLUGIN_BASENAME', plugin_basename(__FILE__));
-define('ADD_ANCHOR_LINKS_VERSION', '1.0.5d0'); // TBD
+define('ADD_ANCHOR_LINKS_VERSION', '1.0.2');
 
 /**
  * Localize plugin
@@ -105,19 +105,12 @@ function add_anchor_links_scripts()
 }
 
 /**
- * Default options.
+ * Default options
  *
- * Own CSS and post types.
  * @since 1.0.0
- * 
- * Scope, whether to add links also to paragraphs (or only).
- * @since TBD
- * 
+ * @since TBD  Scope, whether to add links to paragraphs.
  * Any setting registered as false disappears from the DB,
- * because false is is not registered. Hence to be effective,
- * the 'paragraphs' settings key cannot default to true.
- * That brings the need to first visit the dashboard after
- * activation, as prompted.
+ * because false is is not registered.
  * @return array
  */
 function add_anchor_links_options_defaults()
