@@ -32,10 +32,9 @@ if (! class_exists('AddAnchorLinks')) {
 		public static $anchors = array();
 
 		/**
-		 * Init the action.
+		 * Init the action
 		 *
-		 * The term_description hook is for category pages with article status.
-		 * @since TBD
+		 * @since TBD Term_description hook for category pages with article status.
 		 *
 		 * @reporter @vitaefit
 		 * @link https://wordpress.org/support/topic/footnote-doesntwork-on-category-page/
@@ -43,8 +42,8 @@ if (! class_exists('AddAnchorLinks')) {
 		 * @contributor @misfist
 		 * @link https://wordpress.org/support/topic/footnote-doesntwork-on-category-page/#post-13864859
 		 *
-		 * Category pages can have rich HTML content in a term description with article status.
-		 * For this to happen, WordPress’ built-in partial HTML blocker needs to be disabled.
+		 * Category pages can have rich HTML content in a term description with article status
+		 * when WordPress’ built-in partial HTML blocker is disabled.
 		 * @link https://docs.woocommerce.com/document/allow-html-in-term-category-tag-descriptions/
 		 */
 		public function init()
