@@ -14,6 +14,7 @@ if (! defined('WPINC')) {
 }
 
 /**
+ *
  * Add submenu to Settings.
  *
  * @since 1.0.0
