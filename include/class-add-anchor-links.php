@@ -27,7 +27,7 @@ if (! class_exists('AddAnchorLinks')) {
 		 * Enables a comprehensive list for cross-element disambiguation.
 		 *
 		 * @since TBD
-		 * @var arr
+		 * @var array
 		 */
 		public static $anchors = array();
 
