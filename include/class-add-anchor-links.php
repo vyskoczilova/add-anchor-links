@@ -78,6 +78,16 @@ if (! class_exists('AddAnchorLinks')) {
 					$content = self::add_anchors($content, 'paragraphs' );
 				}
 
+				// With number 1 or Boolean, it must be a loose comparison.
+				if ( $add_anchor_links_options[ 'accordions' ] === '1' ) {
+					$content = self::add_anchors($content, 'accordions' );
+				}
+
+				// With number 1 or Boolean, it must be a loose comparison.
+				if ( $add_anchor_links_options[ 'toggles' ] === '1' ) {
+					$content = self::add_anchors($content, 'toggles' );
+				}
+
 				return $content;
 			}
 
@@ -102,6 +112,13 @@ if (! class_exists('AddAnchorLinks')) {
 			} elseif ( $scope === 'paragraphs' ) {
 				// Search for paragraphs.
 				$pattern = '#<(p|li|blockquote)(?: [^>]+)?>(.+?)</\1 *>#is';
+				preg_match_all($pattern, $text, $headlines, PREG_OFFSET_CAPTURE);
+				
+			} elseif ($scope === 'accordions') {
+				$pattern = '#<[^>]*class="[^"]*\b(accordion)__title\b[^"]*"[^>]*><span>(.*?)<\/span>.*?<\/div>#is';
+				preg_match_all($pattern, $text, $headlines, PREG_OFFSET_CAPTURE);
+			} elseif ($scope === 'toggles') {
+				$pattern = '#<[^>]*class="[^"]*\b(toggle)__title\b[^"]*"[^>]*><span>(.*?)<\/span>.*?<\/div>#is';
 				preg_match_all($pattern, $text, $headlines, PREG_OFFSET_CAPTURE);
 			}
 

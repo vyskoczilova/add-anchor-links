@@ -135,7 +135,7 @@ function add_anchor_links_scope_render()
 {
 
 	global $add_anchor_links_options;
-	$scope = [ 'headings', 'paragraphs' ];
+	$scope = [ 'headings', 'paragraphs', 'accordions', 'toggles' ];
 	foreach ($scope as $sc) {
 		if (! isset($add_anchor_links_options[$sc])) {
 			$add_anchor_links_options[$sc] = false;
@@ -143,7 +143,10 @@ function add_anchor_links_scope_render()
 	}
 		?>
 		<label><input type='checkbox' name='add_anchor_links_settings[paragraphs]' value='1' <?php checked($add_anchor_links_options[ 'paragraphs' ], 1); ?>><?php echo __( 'Add anchors also (or only) to paragraphs, list items and block quotes.', 'add-anchor-links' ); ?></label><br />
-		<label><input type='checkbox' name='add_anchor_links_settings[headings]' value='1' <?php checked($add_anchor_links_options[ 'headings' ], 1); ?>><?php echo __( 'Do not add anchors to headings (because these may get them otherwise).', 'add-anchor-links' ); ?></label><br /><?php
+		<label><input type='checkbox' name='add_anchor_links_settings[accordions]' value='1' <?php checked($add_anchor_links_options[ 'accordions' ], 1); ?>><?php echo __( 'Add anchors also (or only) to accordions from Heroic Blocks.', 'add-anchor-links' ); ?></label><br />
+		<label><input type='checkbox' name='add_anchor_links_settings[toggles]' value='1' <?php checked($add_anchor_links_options[ 'toggles' ], 1); ?>><?php echo __( 'Add anchors also (or only) to toggles from Heroic Blocks.', 'add-anchor-links' ); ?></label><br />
+		<label><input type='checkbox' name='add_anchor_links_settings[headings]' value='1' <?php checked($add_anchor_links_options[ 'headings' ], 1); ?>><?php echo __( 'Do not add anchors to headings (because these may get them otherwise).', 'add-anchor-links' ); ?></label><br />
+		<?php
 }
 
 /**

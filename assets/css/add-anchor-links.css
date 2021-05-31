@@ -15,8 +15,17 @@
     fill: currentColor;
 }
 h1:hover .aal_svg, h2:hover .aal_svg, h3:hover .aal_svg, h4:hover .aal_svg, h5:hover .aal_svg, h6:hover .aal_svg,
-p:hover .aal_svg, li:hover .aal_svg, blockquote:hover .aal_svg {
+p:hover .aal_svg, li:hover .aal_svg, blockquote:hover .aal_svg, .wp-block-hb-accordion__section:hover .aal_svg, 
+.wp-block-hb-toggle:hover .aal_svg {
     visibility: visible;
+}
+
+.wp-block-hb-accordion__section .aal_anchor {
+    margin-left: -62px;
+}
+
+.wp-block-hb-toggle .aal_anchor {
+    margin-left: -68px;
 }
 
 .aal_offset_base {
