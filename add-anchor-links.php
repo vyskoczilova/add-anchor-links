@@ -10,8 +10,8 @@
 
 /**
  * Plugin Name: Add Anchor Links
- * Description: Creates anchor links to heading tags in the content. Modified by Benjamin Antupit to add Heroic Block support.
- * Version:     1.0.5
+ * Description: Creates anchor links to heading tags in the content.
+ * Version:     1.0.4
  * Author:      Karolína Vyskočilová
  * Author URI:  https://kybernaut.cz
  * Text Domain: add-anchor-links
