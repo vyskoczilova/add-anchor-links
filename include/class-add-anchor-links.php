@@ -101,7 +101,7 @@ if (! class_exists('AddAnchorLinks')) {
 
 			} elseif ( $scope === 'paragraphs' ) {
 				// Search for paragraphs.
-				$pattern = '#<(p|li|blockquote)(?: [^>]+)?>(.+?)</\1 *>#is';
+				$pattern = '#<(p|li)(?: [^>]+)?>(.+?)</\1 *>#is';
 				preg_match_all($pattern, $text, $headlines, PREG_OFFSET_CAPTURE);
 			}
 
