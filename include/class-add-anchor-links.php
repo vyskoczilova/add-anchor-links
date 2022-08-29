@@ -59,7 +59,7 @@ if (! class_exists('AddAnchorLinks')) {
 		{
 
 			// Search for headlines.
-			$pattern = '#<h([1-6]).*?(?:id=["\'](.*?)["\']).*?>(.+?)</h\1>#is';
+			$pattern = '#<h([1-6]).*?(?:id=["\'](.*?)["\'])?.*?>(.+?)</h\1>#is';
 
 			preg_match_all($pattern, $text, $headlines, PREG_OFFSET_CAPTURE);
 
