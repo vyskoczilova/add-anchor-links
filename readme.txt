@@ -1,7 +1,7 @@
 ﻿=== Add Anchor Links ===
 Contributors: vyskoczilova
 Requires at least: 4.8
-Tested up to: 5.7
+Tested up to: 6.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: anchor, anchor links, content links, content, headings
@@ -21,7 +21,7 @@ Get involved and [join Github](https://github.com/vyskoczilova/add-anchor-links)
 * Disable CSS.
 
 === Compatibility ===
-* PHP (5.6) & PHP 7
+* PHP PHP 7 & PHP 8
 
 
 == Installation ==
