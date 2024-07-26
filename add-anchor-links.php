@@ -14,6 +14,7 @@
  * Version:     1.0.4
  * Author:      Karolína Vyskočilová
  * Author URI:  https://kybernaut.cz
+ * Donate link:			https://paypal.me/KarolinaVyskocilova/
  * Text Domain: add-anchor-links
  * Domain Path: /languages
  */

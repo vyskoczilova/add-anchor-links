@@ -32,6 +32,10 @@ Get involved and [join Github](https://github.com/vyskoczilova/add-anchor-links)
 
 == Frequently asked questions ==
 
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/add-anchor-links).
+
 = I want to use the latest files. How can I do this? =
 
 Use the GitHub Repo rather than the WordPress Plugin. Do as follows:
