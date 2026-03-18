@@ -1,11 +1,11 @@
 ï»¿=== Add Anchor Links ===
 Contributors: vyskoczilova
 Requires at least: 4.8
-Tested up to: 6.7
+Tested up to: 6.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: anchor, anchor links, content links, content, headings
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Requires PHP: 7.1
 
 Creates anchor links to heading tags in the content of selected posts, just like Github does within the Readme.md files.
@@ -47,6 +47,9 @@ Either post it on [GitHub](https://github.com/vyskoczilova/add-anchor-links) orâ
 
 
 == Changelog ==
+
+= 1.0.5 (2026-03-18) =
+* Fix: Duplicate headings now generate unique anchor IDs (e.g. `overview`, `overview-2`, `overview-3`)
 
 = 1.0.4 = (2021-03-07)
 * Make `Kybernaut\AddAnchorLinks::add_anchors( $string )` function available for custom calls
