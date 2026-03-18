@@ -51,7 +51,7 @@ Either post it on [GitHub](https://github.com/vyskoczilova/add-anchor-links) orâ
 = 1.0.5 (2026-03-18) =
 * Fix: Duplicate headings now generate unique anchor IDs (e.g. `overview`, `overview-2`, `overview-3`)
 
-= 1.0.4 = (2021-03-07)
+= 1.0.4 (2021-03-07) =
 * Make `Kybernaut\AddAnchorLinks::add_anchors( $string )` function available for custom calls
 
 = 1.0.3 = (2021-03-07)
