@@ -30,7 +30,7 @@ if (! class_exists('AddAnchorLinks')) {
 		public function init()
 		{
 
-			\add_filter('the_content', [&$this,'add_anchor_links_to_the_content']);
+			\add_filter('the_content', [$this,'add_anchor_links_to_the_content']);
 		}
 
 		/**
@@ -58,39 +58,43 @@ if (! class_exists('AddAnchorLinks')) {
 		public static function add_anchors($text)
 		{
 
-			// Search for headlines.
-			$pattern = '#<h([1-6])(?: [^>]+)?>(.+?)</h\1>#is';
-			preg_match_all($pattern, $text, $headlines, PREG_OFFSET_CAPTURE);
-
-			$offset = 0;
 			$used_anchors = [];
 
-			if ($headlines) {
-				foreach ($headlines[2] as $match) {
-					list($headline, $pos) = $match;
+			// Search for headlines and insert an anchor after each opening H tag.
+			// Content must not cross another same-level H tag, so an unclosed
+			// heading can't swallow the rest of the content or trigger
+			// excessive regex backtracking.
+			$result = preg_replace_callback(
+				'#(<h([1-6])(?: [^>]++)?>)((?:(?!</?h\2).)+?)(</h\2>)#is',
+				function ($match) use (&$used_anchors) {
+					list(, $opening_tag, , $headline, $closing_tag) = $match;
 
-					if (strlen($headline)) {
-						$anchor = \sanitize_title($headline);
+					$anchor = \sanitize_title($headline);
 
-						// Ensure unique anchor IDs for duplicate headings.
-						if (isset($used_anchors[$anchor])) {
-							$used_anchors[$anchor]++;
-							$anchor .= '-' . $used_anchors[$anchor];
-						} else {
-							$used_anchors[$anchor] = 1;
-						}
-
-						$icon = '<a href="#' . \esc_attr($anchor) . '" aria-hidden="true" class="aal_anchor" id="' . \esc_attr($anchor) . '"><svg aria-hidden="true" class="aal_svg" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>';
-
-						$text    = substr_replace($text, $icon, $offset + $pos, 0); // Insert after H tag.
-						$offset += strlen($icon);
+					// Skip headings without usable text (e.g. image-only headings).
+					if ('' === $anchor) {
+						return $match[0];
 					}
-				}
-			}
 
+					// Ensure unique anchor IDs for duplicate headings.
+					$unique = $anchor;
+					$suffix = 1;
+					while (isset($used_anchors[$unique])) {
+						$suffix++;
+						$unique = $anchor . '-' . $suffix;
+					}
+					$used_anchors[$unique] = true;
+					$anchor = $unique;
 
-			return $text;
+					$icon = '<a href="#' . \esc_attr($anchor) . '" aria-hidden="true" class="aal_anchor" id="' . \esc_attr($anchor) . '"><svg aria-hidden="true" class="aal_svg" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>';
+
+					return $opening_tag . $icon . $headline . $closing_tag;
+				},
+				$text
+			);
+
+			// On regex failure (e.g. backtrack limit) keep the original content.
+			return null === $result ? $text : $result;
 		}
 	}
 }
-new AddAnchorLinks();

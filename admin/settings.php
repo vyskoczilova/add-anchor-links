@@ -36,7 +36,14 @@ add_action('admin_menu', 'add_anchor_links_add_admin_menu');
 function add_anchor_links_settings_init()
 {
 
-	register_setting('add_anchor_links_plugin_page', 'add_anchor_links_settings');
+	register_setting(
+		'add_anchor_links_plugin_page',
+		'add_anchor_links_settings',
+		[
+			'type'              => 'array',
+			'sanitize_callback' => 'add_anchor_links_sanitize_settings',
+		]
+	);
 
 	add_settings_section(
 		'add_anchor_links_design_section',
@@ -69,6 +76,31 @@ function add_anchor_links_settings_init()
 	);
 }
 add_action('admin_init', 'add_anchor_links_settings_init');
+
+/**
+ * Sanitize settings: keep only known keys, cast values to booleans.
+ *
+ * @since 1.0.6
+ * @param mixed $input Raw option value.
+ * @return array
+ */
+function add_anchor_links_sanitize_settings($input)
+{
+
+	$sanitized = [];
+
+	if (! is_array($input)) {
+		return $sanitized;
+	}
+
+	$allowed_keys = array_merge(['own_css'], array_values(add_anchor_links_post_types()));
+
+	foreach ($allowed_keys as $key) {
+		$sanitized[$key] = ! empty($input[$key]) ? 1 : 0;
+	}
+
+	return $sanitized;
+}
 
 /**
  * Render settings: Own CSS
@@ -128,7 +160,7 @@ function add_anchor_links_options_page()
 	?>
 	<form action='options.php' method='post'>
 
-		<h2><?php echo esc_html_e('Add Anchor Links', 'add-anchor-links'); ?></h2>
+		<h2><?php esc_html_e('Add Anchor Links', 'add-anchor-links'); ?></h2>
 
 		<?php
 		settings_fields('add_anchor_links_plugin_page');
