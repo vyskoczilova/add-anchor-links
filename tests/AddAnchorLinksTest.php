@@ -32,4 +32,26 @@ class AddAnchorLinksTest extends TestCase
 		$this->assertStringContainsString('href="#overview-2"', $added);
 		$this->assertStringContainsString('href="#overview-3"', $added);
 	}
+
+	public function testDuplicateHeadingDoesNotCollideWithNaturalSuffix()
+	{
+		$added = AddAnchorLinks::add_anchors('<h2>Overview</h2><h2>Overview 2</h2><h2>Overview</h2>');
+		$this->assertStringContainsString('id="overview"', $added);
+		$this->assertStringContainsString('id="overview-2"', $added);
+		$this->assertStringContainsString('id="overview-3"', $added);
+		$this->assertSame(1, substr_count($added, 'id="overview-2"'));
+	}
+
+	public function testHeadingWithAttributesKeepsOpeningTag()
+	{
+		$added = AddAnchorLinks::add_anchors('<h2 class="wp-block-heading">Test</h2>');
+		$this->assertStringStartsWith('<h2 class="wp-block-heading"><a href="#test"', $added);
+		$this->assertStringEndsWith('Test</h2>', $added);
+	}
+
+	public function testHeadingWithoutUsableTextIsSkipped()
+	{
+		$content = '<h2><img src="x" alt=""></h2>';
+		$this->assertEquals($content, AddAnchorLinks::add_anchors($content));
+	}
 }

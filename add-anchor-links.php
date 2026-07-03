@@ -77,7 +77,7 @@ add_action('plugins_loaded', 'add_anchor_links_plugin_init', 99);
 function add_anchor_links_plugin_action_links($links)
 {
 	$action_links = [
-	'settings' => '<a href="' . admin_url('options-general.php?page=add_anchor_links') . '" aria-label="' . esc_attr__('View Add Anchor Links settings', 'add-anchor-links') . '">' . esc_html__('Settings', 'add-anchor-links') . '</a>',
+	'settings' => '<a href="' . esc_url(admin_url('options-general.php?page=add_anchor_links')) . '" aria-label="' . esc_attr__('View Add Anchor Links settings', 'add-anchor-links') . '">' . esc_html__('Settings', 'add-anchor-links') . '</a>',
 	];
 
 	return array_merge($action_links, $links);
@@ -179,7 +179,7 @@ function add_anchor_links_admin_notice_activation()
 		?>
 		<div class="notice notice-warning is-dismissible">
 			<?php /* translators: 1st tag is </b>, 2nd opening anchor tag, 3rd closing anchor tag */ ?>
-			<p><b><?php printf(esc_html__('ADD ANCHOR LINKS:%1$s Don\'t forget to set up the plugin in %2$ssettings%3$s.', 'add-anchor-links'), '</b>', '<a href="' . esc_attr(admin_url('options-general.php?page=add_anchor_links')) . '" aria-label="' . esc_attr__('View Add Anchor Links settings', 'add-anchor-links') . '">', '</a>'); ?></p>
+			<p><b><?php printf(esc_html__('ADD ANCHOR LINKS:%1$s Don\'t forget to set up the plugin in %2$ssettings%3$s.', 'add-anchor-links'), '</b>', '<a href="' . esc_url(admin_url('options-general.php?page=add_anchor_links')) . '" aria-label="' . esc_attr__('View Add Anchor Links settings', 'add-anchor-links') . '">', '</a>'); ?></p>
 		</div>
 		<?php
 		/* Delete transient, only display this notice once. */
